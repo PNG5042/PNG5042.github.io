@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --color-accent: #ffb454;
+  --color-accent-dim: #ffb45426;
+  --color-accent-strong: #ff9d2e;
+
+  --animate-caret: caret 1s step-end infinite;
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes caret {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #0a0d12;
+  --bg-elevated: #10141b;
+  --bg-inset: #0d1117;
+  --border: #1e2632;
+  --border-strong: #2a3441;
+  --text: #e6edf3;
+  --text-dim: #8b96a5;
+  --text-faint: #5a6474;
+}
+
+:root.light {
+  color-scheme: light;
+  --bg: #fafaf8;
+  --bg-elevated: #ffffff;
+  --bg-inset: #f2f2ef;
+  --border: #e3e2dd;
+  --border-strong: #cfcec7;
+  --text: #14161a;
+  --text-dim: #4b5563;
+  --text-faint: #8a8f98;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #0a0d12;
+}
+
+/* thin, quiet scrollbar to match the editor aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
