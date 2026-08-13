@@ -9,7 +9,7 @@ export const profile = {
   linkedinUrl: "https://linkedin.com/in/prathmesh-gite",
   github: "github.com/PNG5042",
   githubUrl: "https://github.com/PNG5042",
-  resumeUrl: "#", // placeholder — swap with a real resume link
+  resumeUrl: "/resume.pdf",
 };
 
 export const about = {
